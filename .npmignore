@@ -1,0 +1,28 @@
+# Source files (only ship built code)
+src/
+__tests__/
+*.test.ts
+*.test.js
+
+# Config files
+tsconfig*.json
+.eslintrc*
+.prettierrc*
+jest.config.*
+.github/
+
+# Development files
+scripts/
+examples/
+coverage/
+*.tsbuildinfo
+
+# Documentation (except README)
+docs/
+*.md
+!README.md
+
+# OS and IDE files
+.DS_Store
+.vscode/
+.idea/

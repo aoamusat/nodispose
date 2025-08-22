@@ -1,0 +1,81 @@
+{
+   "name": "nodispose",
+   "version": "1.0.0",
+   "description": "A fast and reliable disposable email address detector with support for local and remote domain lists",
+   "main": "dist/index.js",
+   "types": "dist/index.d.ts",
+   "module": "dist/index.mjs",
+   "exports": {
+      ".": {
+         "types": "./dist/index.d.ts",
+         "import": "./dist/index.mjs",
+         "require": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+   },
+   "files": [
+      "dist/",
+      "data/",
+      "README.md",
+      "LICENSE"
+   ],
+   "scripts": {
+      "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+      "build:cjs": "tsc -p tsconfig.cjs.json",
+      "build:esm": "tsc -p tsconfig.esm.json && node scripts/fix-esm.js",
+      "build:types": "tsc -p tsconfig.types.json",
+      "dev": "tsx src/index.ts",
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage",
+      "lint": "eslint src/**/*.ts",
+      "lint:fix": "eslint src/**/*.ts --fix",
+      "format": "prettier --write src/**/*.ts",
+      "clean": "rimraf dist",
+      "prepare": "npm run build",
+      "prepublishOnly": "npm test && npm run lint",
+      "example": "node examples/usage.js"
+   },
+   "keywords": [
+      "email",
+      "disposable",
+      "temporary",
+      "validation",
+      "detector",
+      "spam",
+      "filter"
+   ],
+   "author": "Akeem Amusat <hello@a4m.dev>",
+   "license": "MIT",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/aoamusat/nodispose.git"
+   },
+   "bugs": {
+      "url": "https://github.com/aoamusat/nodispose/issues"
+   },
+   "homepage": "https://github.com/aoamusat/nodispose#readme",
+   "engines": {
+      "node": ">=16.0.0"
+   },
+   "devDependencies": {
+      "@types/jest": "^29.5.0",
+      "@types/node": "^20.19.11",
+      "@typescript-eslint/eslint-plugin": "^7.18.0",
+      "@typescript-eslint/parser": "^7.18.0",
+      "eslint": "^8.0.0",
+      "jest": "^29.5.0",
+      "prettier": "^3.0.0",
+      "rimraf": "^5.0.0",
+      "ts-jest": "^29.1.0",
+      "tsx": "^4.0.0",
+      "typescript": "^5.0.0"
+   },
+   "prettier": {
+      "semi": true,
+      "trailingComma": "es5",
+      "singleQuote": true,
+      "printWidth": 100,
+      "tabWidth": 3
+   }
+}
